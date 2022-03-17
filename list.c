@@ -20,35 +20,66 @@ struct List {
 typedef List List;
 
 Node * createNode(void * data) {
-    Node * new = (Node *)malloc(sizeof(Node));
-    assert(new != NULL);
-    new->data = data;
-    new->prev = NULL;
-    new->next = NULL;
-    return new;
-}
+    Node *nodoLocal = (Node *) malloc(sizeof(Node));
+    nodoLocal->next = NULL;
+    nodoLocal->prev = NULL;
+    nodoLocal->data = data;
+    return nodoLocal;
+  }
 
 List * createList() {
-     return NULL;
+  List *listaLocal = (List *) malloc(sizeof(List));
+  listaLocal->head = NULL;
+  listaLocal->tail = NULL;
+  listaLocal->current = NULL;
+  return listaLocal;
 }
 
 void * firstList(List * list) {
+  if (!list->head)
     return NULL;
+
+  list->current = list->head;
+  return (list->head->data);
 }
 
 void * nextList(List * list) {
+  if (!list->current)
     return NULL;
+
+  if (!list->current->next)
+    return NULL;
+
+  list->current = list->current->next;
+  return (list->current->data);
 }
 
 void * lastList(List * list) {
+  if (!list->tail)
     return NULL;
+  
+  list->current = list->tail;
+  return (list->tail->data);
 }
 
 void * prevList(List * list) {
+  if (!list->current)
     return NULL;
+  
+  if (!list->current->prev)
+    return NULL;
+
+  list->current = list->current->prev;
+  return (list->current->data);
 }
 
 void pushFront(List * list, void * data) {
+  Node* nodoLocal = createNode(data);
+  nodoLocal->next = list->head;
+  if (list->head != NULL)
+    list->head->prev = nodoLocal;
+  list->head = nodoLocal;
+  nodoLocal->prev = NULL;
 }
 
 void pushBack(List * list, void * data) {
@@ -57,6 +88,7 @@ void pushBack(List * list, void * data) {
 }
 
 void pushCurrent(List * list, void * data) {
+  
 }
 
 void * popFront(List * list) {
@@ -70,7 +102,7 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-    return NULL;
+  return NULL;
 }
 
 void cleanList(List * list) {

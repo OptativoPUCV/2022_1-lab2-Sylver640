@@ -1,0 +1,6 @@
+Thu Mar 17 20:31:15 HSP 2022: 
+ list.c | 45 ++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 38 insertions(+), 7 deletions(-)
+ tests:  9|3
+total_score: 35/70
+251463e
