@@ -80,3 +80,14 @@ Sat Mar 19 17:50:32 HSP 2022:
  tests:  9|3
 total_score: 35/70
 979f111
+Sat Mar 19 17:54:36 HSP 2022: 
+ list.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
+In file included from test.c:5:0:
+list.c: In function 'pushFront':
+list.c:78:9: error: unused variable 'temp' [-Werror=unused-variable]
+   Node* temp = (list->head);
+         ^~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+6bb8ad4
