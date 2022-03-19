@@ -133,6 +133,10 @@ void * popCurrent(List * list) {
     list->current->next = list->current->prev;
     list->current = list->current->next;
   }
+  else
+  {
+    list->current = list->tail;
+  }
   
   free(deletedNode);
   return aux;
