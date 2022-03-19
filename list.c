@@ -118,15 +118,16 @@ void * popBack(List * list) {
 
 void * popCurrent(List * list) {
   void* aux = list->current->data;
-  if (list->current->prev != NULL) 
-    list->current->prev->next = list->current->next;
+  Node* deletedNode = list->current;
+  if (deletedNode->prev != NULL) 
+    deletedNode->prev->next = list->current->next;
   else
-    list->head = list->current->next;
+    list->head = deletedNode->next;
   
-  if (list->current->next != NULL)
-    list->current->next->prev = list->current->prev;
+  if (deletedNode->next != NULL)
+    deletedNode->next->prev = deletedNode->prev;
 
-  list->current = list->current->next; 
+  deletedNode = deletedNode->next; 
   return aux;
 }
 
