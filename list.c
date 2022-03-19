@@ -89,7 +89,7 @@ void pushBack(List * list, void * data) {
 }
 
 void pushCurrent(List * list, void * data) {
-  
+  Node* nodoLocal = createNode(data);
 }
 
 void * popFront(List * list) {
