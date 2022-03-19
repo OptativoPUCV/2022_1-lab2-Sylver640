@@ -133,14 +133,10 @@ void * popCurrent(List * list) {
   //free(list->current);
   
   auxNode = list->head;
-  while (auxNode != NULL)
+  while (auxNode != NULL && auxNode->data != indicator)
   {
     auxNode = auxNode->next;
-    if (auxNode->data == indicator)
-      {
-        list->current = auxNode;
-        continue;
-      }
+    list->current = auxNode;
   }
   
   return auxData;
