@@ -95,6 +95,7 @@ void pushCurrent(List * list, void * data) {
     nodoLocal->next = NULL;
     nodoLocal->prev = list->current;
     list->current->next = nodoLocal;
+    return;
   }
   else
   {
