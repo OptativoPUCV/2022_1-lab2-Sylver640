@@ -130,7 +130,7 @@ void * popCurrent(List * list) {
   if (list->current->prev != NULL)
     list->current->prev->next = list->current->next;
 
-  //free(list->current);
+  free(list->current);
   
   auxNode = list->head;
   while (auxNode != NULL && auxNode->data != indicator)
