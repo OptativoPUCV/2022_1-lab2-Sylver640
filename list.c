@@ -90,12 +90,20 @@ void pushBack(List * list, void * data) {
 
 void pushCurrent(List * list, void * data) {
   Node* nodoLocal = createNode(data);
-  if (list->current->next != NULL)
+  if (list->current == list->tail)
+  {
+    nodoLocal->next = NULL;
+    nodoLocal->prev = list->current;
+    list->current->next = nodoLocal;
+  }
+  else
+  {
     nodoLocal->next = list->current->next;
-  nodoLocal->prev = list->current;
-  list->current->next = nodoLocal;
-  if (list->current->next != NULL)
-    (list->current->next)->prev = nodoLocal;
+    nodoLocal->prev = list->current;
+    list->current->next = nodoLocal;
+    if (list->current->next != NULL)
+      (list->current->next)->prev = nodoLocal;
+  }
 }
 
 void * popFront(List * list) {
