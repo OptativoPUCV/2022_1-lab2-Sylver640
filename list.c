@@ -128,6 +128,13 @@ void * popCurrent(List * list) {
   if (deletedNode->prev != NULL)
     deletedNode->prev->next= deletedNode->next;
   
+  if (list->current->next != NULL)
+  {
+    list->current->next = list->current->prev;
+    list->current = list->current->next;
+  }
+  
+  free(deletedNode);
   return aux;
 }
 
