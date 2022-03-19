@@ -27,3 +27,17 @@ Sat Mar 19 17:24:34 HSP 2022:
  tests:  9|3
 total_score: 35/70
 ab090cb
+Sat Mar 19 17:25:16 HSP 2022: 
+ list.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function 'pushFront':
+list.c:79:12: error: 'return' with a value, in function returning void [-Werror]
+     return NULL;
+            ^~~~
+list.c:76:6: note: declared here
+ void pushFront(List * list, void * data) {
+      ^~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+b79855f

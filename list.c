@@ -75,12 +75,14 @@ void * prevList(List * list) {
 
 void pushFront(List * list, void * data) {
   Node* nodoLocal = createNode(data);
-  //list->tail = list->tail->prev;
+  if (!list->tail)
+    return NULL;
   nodoLocal->next = list->head;
   if (list->head != NULL)
     list->head->prev = nodoLocal;
   list->head = nodoLocal;
   nodoLocal->prev = NULL;
+
 }
 
 void pushBack(List * list, void * data) {
