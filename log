@@ -330,3 +330,14 @@ Sat Mar 19 19:48:27 HSP 2022:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 2f0c1ef
+Sat Mar 19 19:52:01 HSP 2022: 
+ list.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:0:
+list.c: In function 'popCurrent':
+list.c:122:9: error: unused variable 'auxNode' [-Werror=unused-variable]
+   Node* auxNode = createNode(list->head->data);
+         ^~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+80fefae
