@@ -117,7 +117,11 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-  return NULL;
+  void* aux = list->current->data;
+
+
+
+  return aux;
 }
 
 void cleanList(List * list) {
